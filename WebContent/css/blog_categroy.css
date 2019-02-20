@@ -1,0 +1,156 @@
+.blog-categroy{
+	width:100%;
+	position:relative;
+}
+.blog-categroy-head{
+	width:96%;
+	height:50px;
+	margin:0 auto;
+	border:1px solid #ccc;
+}
+.categroy-typeText{
+	width:100px;
+	height:100%;
+	display:blick;
+	float:left;
+	font-size:18px;
+	line-height:50px;
+	text-align:center;
+	color:#0E90D2;
+}
+.categroy-addtype{
+	width:100px;
+	height:32px;
+	display:blick;
+	float:right;
+	font-size:14px;
+	line-height:32px;
+	text-align:center;
+	background:#ccc;
+	color:#333;
+	cursor:pointer;
+	margin:9px 20px;
+}
+.categroy-content{
+	width:96%;
+	height:620px;
+	margin:2px auto;
+	border:1px solid #0E90D2;
+}
+.categroy-table{
+	width:100%;
+	height:auto;
+}
+.categroy-thead{
+	width:100%;
+}
+.categroy-thead > tr{
+	width:100%;
+	height:35px;
+	line-height:35px;
+	text-align:center;
+	background:#0E90D2;
+	color:#fff;
+	font-size:14px;
+}
+.categroy-tbody{
+	vertical-align:top;
+}
+.categroy-tbody-tr{
+	height:40px;
+	line-height:40px;
+	text-align:center;
+	border-bottom:1px solid #eee;
+}
+.categroy-tbody-tr:nth-child(even){
+	background:#eee;
+}
+.categroy-del,.categroy-updata{
+	width:80px;
+	height:30px;
+	display:block;
+	text-align:center;
+	line-height:30px;
+	margin:5px auto;
+	background:#0E90D2;
+	color:#fff;
+	border-radius:3px;
+	cursor:pointer;
+}
+.categroy-mask{
+	width:100%;
+	height:100%;
+	position:absolute;
+	left:0;
+	top:0;
+	background:rgba(0,0,0,0.2);
+	display:none;
+}
+/*Ìí¼Ó·ÖÀà*/
+.categroy-addcategroytype{
+	width:360px;
+	height:380px;
+	background:#fff;
+	border:1px solid #eee;
+	position:absolute;
+	top:100px;
+	left:500px;
+	display:none;
+}
+.categroy-addText{
+	width:100%;
+	height:50px;
+	line-height:50px;
+	text-align:center;
+	font-size:16px;
+	font-weight:bold;
+	background:#eee;
+}
+.categroy-addUl{
+	width:100%;
+	height:150px;
+	margin-top:50px;
+}
+.categroy-addUl > li{
+	width:90%;
+	height:40px;
+	line-height:40px;
+	margin:20px auto;
+	border-bottom:1px solid #eee;
+}
+.categroy-addUl > li > span{
+	width:80px;
+	height:40px;
+	display:block;
+	float:left;
+	text-align:center;
+}
+.categroy-addUl > li > input{
+	width:220px;
+	height:40px;
+	display:block;
+	float:left;
+	border:none;
+}
+.categroy-canOrSur{
+	width:100%;
+	height:36px;
+}
+.categroy-canOrSur > span{
+	width:75px;
+	height:36px;
+	display:block;
+	float:left;
+	line-height:36px;
+	text-align:center;
+	cursor:pointer;
+	font-size:14px;
+	margin-left:70px;
+	background:#eee;
+	color:#333;
+	border-radius:3px;
+}
+.categroy-canOrSur > span.categroy-sure{
+	background:#0E90D2;
+	color:#fff;
+}

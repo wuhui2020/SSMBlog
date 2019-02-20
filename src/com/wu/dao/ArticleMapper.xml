@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.wu.dao.ArticleMapper">
+	<resultMap type="com.wu.domain.Article" id="findArticle">
+		<id property="article_id" column="aid"/>
+		<result property="article_title" column="article_title"/>
+		<result property="article_content" column="article_content"/>
+		<result property="article_time" column="article_time"/>
+		<result property="article_pic" column="article_pic"/>
+		<result property="article_desc" column="article_desc"/>
+		<association property="categroy" javaType="com.wu.domain.Categroy" >
+			<id property="cid" column="cid"/>
+			<result property="cname" column="cname"/>
+			<result property="parentid" column="parentid"/>
+		</association>
+	</resultMap>
+	<select id="searchArticle" resultMap="findArticle">
+		select a.article_id aid,a.article_title,a.article_content,a.article_time,a.article_pic,a.article_desc,c.cid,c.cname,c.parentid from article a,category c where a.article_cid = c.cid
+	</select>
+	
+	<select id="searchCategroyArticle" resultType="com.wu.domain.Article" >
+		select * from article where article_cid = #{1}
+	</select>
+	<!-- 
+	<insert id="addPerson" parameterType="com.wu.domain.Person">
+		insert into person(id,name,age)values(#{id},#{name},#{age})
+	</insert>
+	
+	<delete id="delPerson" parameterType="int">
+		delete from person where id = #{id}
+	</delete>
+	
+	<update id="updatePerson" parameterType="com.wu.domain.Person" >
+		update person set name=#{name},age=#{age} where id = #{id}
+	</update> -->
+	
+	
+</mapper>

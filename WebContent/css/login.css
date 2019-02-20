@@ -1,0 +1,93 @@
+body{
+	background-image:url("../images/blog_bg.png");
+	background-size:100%;
+}
+.login-wrap{
+	width:100%;
+	height:100%;
+	font-family:"微软雅黑";
+}
+.login-sigin{
+	width:360px;
+	height:300px;
+	background:#fff;
+	margin:200px auto;
+	box-shadow:1px 2px 5px #fff;
+}
+.login-siginText{
+	width:100%;
+	height:50px;
+	line-height:50px;
+	text-align:center;
+	font-size:18px;
+	color:#fff;
+	background: linear-gradient(#8C8C8C, #5B5B5B);
+	background: -webkit-linear-gradient(#8C8C8C, #5B5B5B);
+}
+.login-message{
+	width:100%;
+	height:26px;
+	line-height:26px;
+	text-align:center;
+	color:#fa3c3c;
+	overflow:hidden;
+}
+.login-ul{
+	width:100%;
+	height:160px;
+}
+.login-ul >li{
+	width:100%;
+	height:30px;
+	margin-top:18px;
+}
+.login-ul >li:nth-child(1){
+	margin-top:0;
+}
+.login-lable{
+	width:70px;
+	height:30px;
+	display:block;
+	float:left;
+	line-height:30px;
+	text-align:right;
+	font-size:14px;
+	color:#333;
+}
+.login-input{
+	width:254px;
+	height:29px;
+	float:left;
+	marign-left:6px;
+	text-indent:6px;
+	border:none;
+	border-bottom:1px solid #39E5E7;
+}
+.login-validatecode{
+	width:134px;
+	height:29px;
+	float:left;
+	marign-left:6px;
+	text-indent:6px;
+	border:none;
+	border-bottom:1px solid #39E5E7;
+}
+.login-validatespan{
+	width:119px;
+	height:29px;
+	display:block;
+	float:left;
+	border-bottom:1px solid #39E5E7;
+}
+.login-button{
+	width:100px;
+	height:32px;
+	line-height:32px;
+	font-size:16px;
+	color:#fff;
+	text-align:center;
+	background:#39E5E7;
+	margin:0px auto;
+	cursor:pointer;
+	border-radius:3px;
+}

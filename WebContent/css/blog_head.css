@@ -1,0 +1,57 @@
+.blog-head{
+	width:100%;
+	height:100px;
+	background:#ccc;
+}
+.blog-left{
+	width:360px;
+	height:100%;
+	float:left;
+	margin-left:120px;
+}
+.blog-text{
+	width:100%;
+	height:100%;
+	display:block;
+	line-height:100px;
+	color:#0E90D2;
+	font-size:36px;
+	font-weight:bold;
+	font-style:italic;
+	letter-spacing:8px;
+	font-family:"Microsoft YaHei";
+}
+.blog-right{
+	width:200px;
+	height:100%;
+	float:right
+}
+.blog-usename{
+	width:100px;
+	height:100%;
+	display:block;
+	float:left;
+	line-height:100px;
+	text-align:center;
+	overflow:hidden;
+	font-size:14px;
+	color:#fa3c3c;
+}
+.blog-loginout{
+	width:70px;
+	height:32px;
+	line-height:32px;
+	display:block;
+	float:left;
+	margin:34px auto;
+}
+.blog-loginout > a{
+	width:100%;
+	height:100%;
+	display:block;
+	background:#0E90D2;
+	color:#fff;
+	cursor:pointer;
+	text-align:center;
+	border-radius:2px;
+}

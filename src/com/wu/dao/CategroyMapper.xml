@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.wu.dao.CategroyMapper">
+	
+	<select id="search" resultType="com.wu.domain.Categroy">
+		select * from category
+	</select>
+	
+	<insert id="addCategroy" parameterType="com.wu.domain.Categroy">
+		insert into category(cid,cname,parentid)values(#{cid},#{cname},#{parentid})
+	</insert>
+	
+	<update id="updateCategroy" parameterType="com.wu.domain.Categroy" >
+		update category set cname=#{cname},parentid=#{parentid} where cid = #{cid}
+	</update>
+	
+	<delete id="delCategroy" parameterType="int">
+		delete from category where cid = #{cid}
+	</delete>
+	<!-- 
+	<select id="allPerson" resultType="com.wu.domain.Person">
+		select * from person
+	</select>
+	
+	
+	
+	
+	 -->
+	
+</mapper>

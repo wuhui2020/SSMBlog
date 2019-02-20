@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:aop="http://www.springframework.org/schema/aop"
+	xmlns:mvc="http://www.springframework.org/schema/mvc"
+	xmlns:mybatis-spring="http://mybatis.org/schema/mybatis-spring"
+	xmlns:tx="http://www.springframework.org/schema/tx"
+	xsi:schemaLocation="http://www.springframework.org/schema/mvc http://www.springframework.org/schema/mvc/spring-mvc-4.3.xsd
+		http://mybatis.org/schema/mybatis-spring http://mybatis.org/schema/mybatis-spring-1.2.xsd
+		http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-4.3.xsd
+		http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-4.3.xsd
+		http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-4.3.xsd">
+	
+	
+	<!-- 加载数据库信息文件db.properties文件 -->
+	<bean id="config" class="org.springframework.beans.factory.config.PreferencesPlaceholderConfigurer">
+		<property name="locations">
+			<array>
+				<value>classpath:db.properties</value>
+			</array>
+		</property>
+	</bean>
+	
+	<!-- 配制数据库信息 -->
+	<!-- 用的是阿里巴巴druid连接池 com.alibaba.druid.pool.DruidDataSource -->
+	<bean id="dataSource" class="com.alibaba.druid.pool.DruidDataSource">
+		<property name="driverClassName" value="${jdbc.driver}" />
+		<property name="url" value="${jdbc.url}" />
+		<property name="username" value="${jdbc.username}" />
+		<property name="password" value="${jdbc.password}" />
+	</bean>
+	
+	
+	<!-- 配置Mybatis核心类 sqlSessionFacotry-->
+	<bean id="sqlSessionFacotry" class="org.mybatis.spring.SqlSessionFactoryBean">
+		<!-- 注入数据库信息 -->
+		<property name="dataSource" ref="dataSource"></property>
+		<!-- 引入影射文件  加载Mapper.xml -->
+		<property name="mapperLocations" value="classpath:com/wu/dao/*.xml"></property>
+	</bean>
+	
+	<!-- 将Mybatis的核心类SqlSessionFactory交经Spring   Spring 整合Mybatis-->
+	<bean class="org.mybatis.spring.mapper.MapperScannerConfigurer">
+		<property name="sqlSessionFactoryBeanName" value="sqlSessionFacotry"></property>
+		<!--basePackage 作用就是就将com.wu.dao包中，所有的接口，产生与之对应的动态代理对象(对象就是接口首字母小写的接口名)-->
+		<property name="basePackage" value="com.wu.dao"></property>
+	</bean>
+	
+	<!-- 配制事务管理器 -->
+	<bean id="transactionManager" class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
+		<property name="dataSource" ref="dataSource"></property>
+	</bean>
+	<tx:annotation-driven transaction-manager="transactionManager"/>
+	
+</beans>

@@ -1,0 +1,23 @@
+.blog-left-menu{
+	width:100%;
+	height:auto;
+}
+.blog-left-menu > li{
+	width:100%;
+	height:50px;
+	border-bottom:1px solid #ddd;
+}
+.blog-left-menu > li > a{
+	width:100%;
+	height:50px;
+	display:block;
+	line-height:50px;
+	text-align:center;
+	font-size:14px;
+	cursor:pointer;
+	color:#333;
+}
+.blog-left-menu > li a.isChecked{
+	background:blue;
+	color:#fff;
+}

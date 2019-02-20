@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<link rel="stylesheet" type="text/css" href="../css/reset.css"/>
+<link rel="stylesheet" type="text/css" href="../css/blog_categroy.css"/>
+<script src="../js/jquery-1.11.3.min.js"></script>
+<script src="../js/blog_categroy.js"></script>
+</head>
+<body>
+	<div class="blog-categroy clearfix">
+		<div class="blog-categroy-head clearfix">
+			<span class="categroy-typeText">分类管理</span>
+			<span class="categroy-addtype">添加分类</span>
+		</div>
+		<div class="categroy-content">
+			<table class="categroy-table">
+				<thead class="categroy-thead">
+					<tr>
+						<th>ID</th>
+						<th>分类名称</th>
+						<th>父类id</th>
+						<th>修改</th>
+						<th>删除</th>
+					</tr>
+				</thead>
+				<tbody class="categroy-tbody">
+				
+				</tbody>
+			</table>
+		</div>
+		<div class="categroy-mask"></div>
+		<div class="categroy-addcategroytype">
+			<p class="categroy-addText">添加分类</p>
+			<ul class="categroy-addUl">
+				<li class="clearfix">
+					<span>父类 I D:</span>
+					<input type="text" class="categroy-parentid"  placeholder="父类ID" />
+				</li>
+				<li class="clearfix">
+					<span>分类名称:</span>
+					<input type="hidden" class="categroy-cid">
+					<input type="text" class="categroy-cname" placeholder="请输入分类名称(必填项)"/>
+				</li>
+			</ul>
+			<div class="categroy-canOrSur">
+				<span class="categroy-cancel">取消</span>
+				<span class="categroy-sure">确定</span>
+			</div>
+		</div>
+	</div>
+</body>
+</html>

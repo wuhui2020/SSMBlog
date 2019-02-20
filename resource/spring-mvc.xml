@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:jdbc="http://www.springframework.org/schema/jdbc"
+	xmlns:mvc="http://www.springframework.org/schema/mvc"
+	xsi:schemaLocation="http://www.springframework.org/schema/jdbc http://www.springframework.org/schema/jdbc/spring-jdbc-4.3.xsd
+		http://www.springframework.org/schema/mvc http://www.springframework.org/schema/mvc/spring-mvc-4.3.xsd
+		http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-4.3.xsd">
+
+	<!-- Spring MVC -->
+	<!-- 开启扫描  扫描有注解的包 -->
+	<context:component-scan base-package="com.wu.*"></context:component-scan>
+	 
+	<mvc:default-servlet-handler/>
+	
+	
+	<!-- 配置视图解释器 -->
+	<bean  class="org.springframework.web.servlet.view.InternalResourceViewResolver">
+		<property name="prefix" value="/views/"></property>
+		<property name="suffix" value=".html"></property>
+	</bean>
+	
+	
+	<!-- Spring mvc 基础配置  (标配) -->
+	<mvc:annotation-driven>
+		<!-- 解决中文乱码 -->
+		<mvc:message-converters register-defaults="true">
+			<bean class="org.springframework.http.converter.StringHttpMessageConverter">
+					<property name="supportedMediaTypes" value = "text/html;charset=UTF-8" />
+			</bean>
+		</mvc:message-converters>
+	
+	</mvc:annotation-driven>
+	
+	<!-- 将自已写的拦截器，配制到springmvc中 -->
+	<mvc:interceptors>
+		
+		
+		<!--2. 配制具体的指定拦载路径 
+			mvc:mapping   指定拦载路径
+			mvc:exclude-mapping 指定不拦载路径
+			指定拦截的路径，基于ant风格：
+			/** 拦载根目录所有
+			/aa 不拦截根目录下的aa
+			-->
+		
+		<mvc:interceptor>
+			<mvc:mapping path="/**"/>
+			<mvc:exclude-mapping path="/login.html"/>
+			<mvc:exclude-mapping path="/views/*"/>
+			<mvc:exclude-mapping path="/js/*"/>
+			<mvc:exclude-mapping path="/css/*"/>
+			<mvc:exclude-mapping path="/images/*"/>
+			<bean class="com.wu.controller.MyInterceptor"></bean>
+		</mvc:interceptor>
+		
+		<!--1. 没有指定拦载路径 就拦载所有 
+ 		<bean class="com.wu.controller.MyInterceptor"></bean>
+ 		-->
+	</mvc:interceptors>
+	
+	
+	<mvc:resources location="/images/" mapping="/images/**"/>
+    <mvc:resources location="/css/" mapping="/css/**"/>
+    <mvc:resources location="/js/" mapping="/js/**"/>
+</beans>
